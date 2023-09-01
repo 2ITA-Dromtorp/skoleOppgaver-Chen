@@ -1,25 +1,30 @@
+import pic from './amogus.png';
 import logo from './logo.svg';
 import './App.css';
+import MyApp from './newComponent';
+const spin = document.getElementById("spon");
+
+
+const user = {
+    name: "sir",
+    }
+    
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <img src={pic} id="spon" className="App-logo" alt="logo" />
+        <MyApp/>
+        <h1>
+        {user.name}
+        </h1>
       </header>
     </div>
   );
 }
+
+
+  
 
 export default App;

@@ -4,21 +4,17 @@
 
 .App-logo {
   height: 40vmin;
+  pointer-events: none;
 }
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
-    animation: App-logo-spin infinite 5s linear;
+    animation: App-logo-spin infinite 0.000005999s linear;
   }
-
-  .App-logo:hover {
-    animation: App-logo-spin infinite 0.000005s linear;
-  }
-
 }
 
 .App-header {
-  background-color: #000;
+  background-color: #282c34;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -41,6 +37,18 @@
   }
 }
 
-.avatar {
-  border-radius: 50%;
+.DeloppgaveA{
+  color: #f34;
+}
+
+.DeloppgaveB{
+  color: #3f4;
+}
+
+.DeloppgaveC{
+  color: #34f;
+}
+
+.DeloppgaveD{
+  color: #f43;
 }
