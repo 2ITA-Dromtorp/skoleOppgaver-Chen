@@ -9,7 +9,7 @@
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
-    animation: App-logo-spin infinite 0.000005999s linear;
+    animation: App-logo-spin infinite 0.1s linear;
   }
 }
 
@@ -39,16 +39,120 @@
 
 .DeloppgaveA{
   color: #f34;
+  display:none;
+}
+
+.btn1 {
+  display: block;
+  margin-left: 5rem;
+}
+
+.hide{
+  display: none;
+  margin-left: 5rem;
 }
 
 .DeloppgaveB{
   color: #3f4;
+  display: none;
 }
+
+.btn2 {
+  display: block;
+  margin-left: 5rem;
+}
+
+.hide1{
+  display: none;
+  margin-left: 5rem;
+}
+
 
 .DeloppgaveC{
   color: #34f;
+  display: none;
 }
 
+.btn3 {
+  display: block;
+  margin-left: 5rem;
+}
+
+.hide2{
+  display: none;
+  margin-left: 5rem;
+}
+
+
 .DeloppgaveD{
-  color: #f43;
+  color: #f4f;
+  display: none;
+}
+
+.btn4 {
+  display: block;
+  margin-left: 5rem;
+}
+
+.hide3{
+  display: none;
+  margin-left: 5rem;
+}
+
+.DeloppgaveA2{
+  color: #f67;
+  display: none;
+}
+
+.btnA {
+  display: block;
+  margin-left: 5rem;
+}
+
+.hide-2{
+  display: none;
+  margin-left: 5rem;
+}
+
+
+.background{
+  position: relative;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+img{
+  width: 10%;
+}
+
+button{
+  background-color: #282c34;
+  border: none;
+  color: #ff43ff;
+}
+
+.counter{
+  position: absolute; /* Set the text to absolute positioning within the container */
+    top: 56%; /* Position it vertically in the middle of the container */
+    left: 50%; /* Position it horizontally in the middle of the container */
+    transform: translate(-50%, -50%); /* Center it perfectly */
+    /* background-color: rgba(255, 255, 255, 0.7); Add a semi-transparent background for readability */
+    padding: 10px; /* Add padding for spacing */
+    /* border: 1px solid #000; Add a border for visibility */
+    color: #000;
+    z-index: 1;
+}
+
+.down{
+  transform: rotate(180deg);
+}
+
+.down:hover{
+  fill: #34f
+}
+
+.up:hover{
+  fill: #f34;
 }

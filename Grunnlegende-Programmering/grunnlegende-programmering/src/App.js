@@ -1,6 +1,9 @@
-import logo from './logo.svg';
+import logo from './images/logo.svg';
 import './App.css';
 import Oppgave1 from './oppgave1';
+import Oppgave2 from './oppgave2';
+import Shit from './throwawayShit';
+import Clock from './clock';
 
 
 function App() {
@@ -8,7 +11,10 @@ function App() {
     <div className="App">
       <header className="App-header">
         <Oppgave1 />
-        <img src={logo} className="App-logo" alt="logo" />
+        <Oppgave2 />
+        <Clock />
+         <img src={logo} className="App-logo" alt="logo" /> 
+         <Shit />
         <p>
            reload.
         </p>
@@ -20,6 +26,7 @@ function App() {
         >
           
         </a>
+        
       </header>
     </div>
   );

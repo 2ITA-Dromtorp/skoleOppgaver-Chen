@@ -1,4 +1,3 @@
-import pic from './amogus.png';
 import logo from './logo.svg';
 import './App.css';
 import MyApp from './newComponent';
@@ -14,7 +13,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={pic} id="spon" className="App-logo" alt="logo" />
+        <img src={logo} id="spon" className="App-logo" alt="logo" />
         <MyApp/>
         <h1>
         {user.name}
