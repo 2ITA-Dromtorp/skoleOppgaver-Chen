@@ -4,6 +4,8 @@ import Oppgave1 from './oppgave1';
 import Oppgave2 from './oppgave2';
 import Shit from './throwawayShit';
 import Clock from './clock';
+import Apibtn from './pictureApi';
+
 
 
 function App() {
@@ -13,8 +15,10 @@ function App() {
         <Oppgave1 />
         <Oppgave2 />
         <Clock />
-         <img src={logo} className="App-logo" alt="logo" /> 
-         <Shit />
+        <Apibtn />
+        {/* <Shit />
+         <img src={logo} className="App-logo" alt="logo" />  */}
+         
         <p>
            reload.
         </p>
@@ -26,7 +30,6 @@ function App() {
         >
           
         </a>
-        
       </header>
     </div>
   );

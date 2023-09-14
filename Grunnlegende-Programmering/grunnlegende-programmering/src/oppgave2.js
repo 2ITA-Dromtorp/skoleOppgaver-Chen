@@ -2,6 +2,7 @@ import './App.css'
 import { useState, useEffect } from 'react';
 import sirkel from './images/sirkel.png';
 import upArrow from './images/uparrow.png';
+import ConfettiExplosion from 'react-confetti-explosion';
 
 function Oppgave2() {
     return(
@@ -114,7 +115,7 @@ function DeloppgaveC() {
       ) : (
 
         <div>
-        <button onClick={handleClick}>Skjul</button>
+        <button onClick={handleClick}>Hide</button>
 
            <h1> Deloppgave C. </h1>
             <h2> Areal av en trekant:  </h2>
@@ -133,7 +134,7 @@ function DeloppgaveC() {
 
 
 function SirkelOppgave(){
-    const [count, setCount] = useState(0);
+    const [count, setCount] = useState(10);
     const [isCounting, setIsCounting] = useState(false);
 
     function handleClickAddOne() {
@@ -156,7 +157,7 @@ function SirkelOppgave(){
 
       if (isCounting) {
           interval = setInterval(() => {
-            setCount((prevCount) => prevCount +1);
+            setCount((prevCount) => prevCount -1);
           }, 1000); // Decrease count every second
         } else {
           clearInterval(interval); // Stop the interval when not counting
@@ -205,6 +206,7 @@ Created by potrace 1.16, written by Peter Selinger 2001-2019
   }
 
   
+  
   function MyButton({ count, onClick, children}) {
     return (
       <button onClick={onClick}>
@@ -212,6 +214,7 @@ Created by potrace 1.16, written by Peter Selinger 2001-2019
       </button>
     );
   }
+
 
 
 export default Oppgave2;
