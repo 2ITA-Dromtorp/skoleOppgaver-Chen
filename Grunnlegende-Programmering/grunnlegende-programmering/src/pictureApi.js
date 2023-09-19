@@ -17,7 +17,7 @@ import { useState, useEffect } from "react"
 
         return(
             <>
-            <button onClick={fetchRandomDog}> dog image </button>
+            <button onClick={fetchRandomDog}> new dog</button>
             {dogImage && <img src={dogImage} ></img>}
             </>
         );

@@ -5,6 +5,7 @@ import Oppgave2 from './oppgave2';
 import Shit from './throwawayShit';
 import Clock from './clock';
 import Apibtn from './pictureApi';
+import Rockmpapermsisor from './rockmpapermsisor';
 
 
 
@@ -16,6 +17,7 @@ function App() {
         <Oppgave2 />
         <Clock />
         <Apibtn />
+        <Rockmpapermsisor />
         {/* <Shit />
          <img src={logo} className="App-logo" alt="logo" />  */}
          

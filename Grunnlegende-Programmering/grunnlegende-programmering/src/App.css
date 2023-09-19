@@ -164,3 +164,15 @@ button{
   align-items: center;
   justify-content: center;
 }
+
+
+.rockpapersisor{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.bmtn{
+  display: flex;
+  flex-direction: row;
+}
