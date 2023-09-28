@@ -41,6 +41,7 @@ export default function Rockmpapermsisor (){
     return(
 
             <div className="rockpapersisor">
+                <h1>FAILURE</h1>
                 <h1>P1 {usenum} </h1>
                     <div className="bmtn">
                     <button onClick={BtnRomk}>rock</button> 
