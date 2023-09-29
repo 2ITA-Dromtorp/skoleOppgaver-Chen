@@ -103,10 +103,7 @@ function Play(){
   </div>
 
    
-   
 </div>
   );
-
 }
-
 export default App;
