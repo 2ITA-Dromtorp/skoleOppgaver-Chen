@@ -39,8 +39,23 @@
 
 .bigbox{
   background-color: #846;
+  z-index: 1;
   height: 100vh;
   width: 100vw ;
+}
+
+button{
+  display: flex;
+  z-index: 1  ;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;  
+  background-color: #000;
+  border: solid #282c34 3px;
+  font-size: 200%;
+  color: rgb(227, 108, 11);
+  height:50%;
+  width: 16.66%;
 }
 
 .row1{
@@ -73,13 +88,35 @@
   height: 50%;
   align-items: center;
   justify-content: center;
+  background-color: #000;
+  border: solid #282c34 3px;
   font-size: 200%;
   color: rgb(227, 108, 11);
-  background-color: #000;
   width: 16.66%;
-  border: solid #282c34 3px;
+
 }
 
 .empty{
   width: 16.66%;
+}
+
+.home{
+  display: flex;
+  flex-direction: row; 
+  height:10%;
+  width: 5%;
+}
+
+.navbar{
+  display: flex;
+  flex-direction: row;
+  font-size: 50%;
+}
+
+.profilboks{
+  background-color: #282c34;
+  z-index: 1000;
+  height: 100vh;
+  width: 100vw;
+margin-top: -1.5rem;
 }
