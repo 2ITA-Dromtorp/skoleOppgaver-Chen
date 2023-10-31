@@ -3,7 +3,7 @@ import { Link, } from 'react-router-dom';
 
 export default function student(props){
     let name = props.name;
-    console.log(name)
+
 
     return(
 
