@@ -8,8 +8,8 @@ export default function navbar () {
                 <p>logo</p>
             </div>
             <div className='redirect'>
-                <div className='navbox'> <p>kurs</p> </div>
                 <div className='navbox'> <p>kontakt oss</p> </div>
+                <div className='navbox'> <p>Profil bilde går her</p> </div>
             </div>
         </div>
     )
