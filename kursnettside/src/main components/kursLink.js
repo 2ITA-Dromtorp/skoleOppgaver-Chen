@@ -7,7 +7,7 @@ export default function student(props){
 
     return(
 
-        <div><Link to={name}> {name}</Link></div>
+        <div><Link to={name}> {name} </Link></div>
 
     )
 }
