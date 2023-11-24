@@ -1,6 +1,5 @@
 import '../App.css'
 import React, { useState } from 'react';
-import { updateInputArray, getInputArray } from './loginInfo';
 
 
 
@@ -18,7 +17,6 @@ export default function () {
                 <h4>fyll ut feltene unner for å opprette en bruker.</h4>
                 </div>
                 <div className='loginInfo'>
-                    {/* <form> */}
                         <label for="fname">Skriv inn bruker navn:</label>
                         <input type='string'></input><br></br>
                         <label for="fname"> Skriv inn Telefon nummer:</label>
@@ -28,7 +26,6 @@ export default function () {
                         <label for="fname">Lag et Passord:</label>
                         <input type='string'></input><br></br>
                         <input type='submit' value={'Opprett bruker'}></input>
-                    {/* </form> */}
 
                 </div>
             </div>
