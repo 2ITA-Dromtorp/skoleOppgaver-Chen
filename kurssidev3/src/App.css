@@ -1,0 +1,196 @@
+html{
+  margin: 0;
+  overflow: hidden;
+}
+
+.navbar{
+  display: flex;
+  width: 100vw;
+  height: 7vh;
+  background-color: #D9D9D9;
+  box-shadow:1px 3px 5px grey;
+  border: 1px solid black;
+}
+
+
+.redirect{
+  margin-left: 80%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 17%;
+}
+
+.navbox{
+  background-color: #79F7FF;
+  width:40%;
+  height: 100%;
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  border-left: 1px solid black;
+  border-right: 1px solid black;
+}
+
+.navbox:hover{
+  background-color: #6dd9e1;;
+}
+
+.logo{
+  background-color: #00D1FF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 5%;
+  color: #000000;
+  text-decoration: none;
+}
+
+.logo:hover{
+  background-color: #0da5c7;
+}
+
+
+.mainBox{
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  text-align: center;
+  align-items:CENTER;
+  justify-content: center;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+
+.blueBox{
+  background-color: #199AF7;
+  height: 82%;
+  width: 80%;
+  opacity: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow-y: scroll;
+  padding: 1%;
+  box-shadow:1px 1px 10px 5px grey;
+}
+
+.info{
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.kurs{
+  height: 50%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.home{
+  position: relative;
+  bottom: -10%;
+  background-color: #00FF85;
+  border:none;
+  border-radius: 5%;
+  height: 10%;
+  width: 20%;
+  font-size: 100%;
+  color: #000000;
+  text-decoration: none;
+}
+
+.homer{
+  position: relative;
+  bottom: -10%;
+  background-color: #00FF85;
+  border:none;
+  border-radius: 5%;
+  height: 5%;
+  width: 50%;
+  font-size: 100%;
+  color: #000000;
+  text-decoration: none;
+  margin-top: -10%;
+}
+
+button{
+  position: relative;
+  bottom: -10%;
+  background-color: #00FF85;
+  border:none;
+  border-radius: 5%;
+  height: 10%;
+  width: 20%;
+  font-size: 100%;
+}
+
+.tilbudtkurs{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 100%;
+}
+
+.kursBox{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #800080;
+  color: #000000;
+  text-decoration: none;
+  padding: 1%;
+  width: 20%;
+  height: 100%;
+}
+
+.tittleBar{
+  display: flex;
+  background-color: #D9D9D9;
+  align-items: center;
+  justify-content: center;
+  width: 80%;
+  margin-top: 2%;
+  margin-bottom: 2%;
+}
+
+
+.loginInfo{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.loginInfo input[type='submit']{
+  background-color: #015591;
+  color: #D9D9D9;
+  border: none;
+  height: 5vh;
+  width: 150%;
+  font-size: 100%;
+  border-radius: 2%;
+}
+
+form{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.headBox{
+  background-color: #015591;
+  color: #ffffff;
+  width: 100%;
+}
+
+.middle Box{
+  color: #ffffff;
+}
