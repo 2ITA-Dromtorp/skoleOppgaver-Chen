@@ -23,10 +23,12 @@ connection.connect();
 app.listen(PORT, () => {
     console.log("Server started" + PORT);
 
-    app.post('/tester',(req, res) => {
+    app.post('/create-user',(req, res) => {
         const b = req.body
-        const query = 'SELECT * FROM login WHERE UserName = ?'
-        const values = [b.data]
+        const number = parseInt(b.number)
+        const query = 'INSERT INTO login (UserEmail, UserPassword, UserName, UserPhoneNummer) VALUES (?, ?, ?, ?)'
+        const values = [b.email, b.password, b.username, b.phone]
+        console.log(query, values)
         connection.query(query, values, (err, result) => {
             if (err){
                 console.log(err)
@@ -36,9 +38,4 @@ app.listen(PORT, () => {
             }
         })
     })
-    
-    app.get('/test', (req, res) => {
-        res.status(200).send("test")
-    })
 })
- 

@@ -43,7 +43,7 @@ export default function Kursinfo () {
                         <td>Hvor kurs skal være:</td>
                     </tr>
                 </table>
-                <Link to={'/Login'} className='home'><p>klikk for å meld deg på</p></Link>
+                <Link to={'/'+Kursnavn+'/Login'} className='home'><p>klikk for å meld deg på</p></Link>
             </div></>) : (<div className='blueBox'>
             <p>mlem no info found go back 🐈</p>
             <button className='home' onClick={()=> {Navigate(-1)}}>klikk for å gå til bake</button>
