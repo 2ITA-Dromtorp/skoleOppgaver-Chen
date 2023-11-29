@@ -1,80 +1,76 @@
-import '../App.css'
-import React, { useState } from 'react';
+import '../App.css';
+import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import Popup from 'reactjs-popup';
-import 'reactjs-popup/dist/index.css';
-import Confirm from './confirmation.jsx'
+import { Link } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 
-
-
-
-export default function () {
-    const navigate = useNavigate();
-
+export default function Login() {
+    const navigator = useNavigate();
+    const { Kursnavn } = useParams();
     const[username, setUsername] = useState('');
     const[password, setPassword] = useState('');
     const[email, setEmail] = useState('');
-    const[phone, setPhone] = useState('');
 
-
-    const handleSubmit = () => {
-        console.log(username, phone, email, password);
- 
- 
-    const dataToSend = {
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        
+    const dataToCheck = {
         username: username,
-        phone: phone,
         email: email,
         password: password
     }
-        fetch('/create-user', {
+        fetch('/api/login', {
             method:'POST',
             headers:{
-              "content-type":"application/json",
+              "content-type":"application/json"
             },
-            body:JSON.stringify(dataToSend),
+            body:JSON.stringify(dataToCheck),
         })
         .then(async (res) => {
                         const data = await res.json();
                         if (res.status===200) {
                             console.log(data);
-                            navigate("/")
+                            navigator("/Sign-Inn-success")
  
                         }  if (res.status===400) {
-                            alert("Du må fylle ut alle feltene")
+                            console.alert("Du må fylle ut alle feltene")
                         }
                     })
                     .catch((error) => {
                         console.error('Error fetching data:', error);
                     });   
+
                  }
 
-    return(
+    return (
+        <>
         <div className='mainBox'>
             <div className='blueBox'>
                 <div className='headBox'>
-                    <h1>Lag en bruker</h1>
+                    <h1>Login</h1>
                 </div>
                 <div className='middleBox'>
-                <h4>Man må Lage en bruker får du kan få meldt deg på.</h4>
-                <h4>fyll ut feltene unner for å opprette en bruker.</h4>
+                    <h4>Man må logge inn på en bruker for å melde seg på et kurs</h4>
                 </div>
                 <div className='loginInfo'>
-                        <label for="fname">Skriv inn bruker navn:</label>
-                        <input type='string' value={username} onInput={(e) => setUsername(e.target.value)}></input><br></br>
-                        <label for="fname"> Skriv inn Telefon nummer:</label>
-                        <input type='number' value={phone} onInput={(e) => setPhone(e.target.value)}></input><br></br>
-                        <label for="fname">Skriv inn Email:</label>
-                        <input type='email' value={email} onInput={(e) => setEmail(e.target.value)}></input><br></br>
-                        <label for="fname">Lag et Passord:</label>
-                        <input type='password' value={password} onInput={(e) => setPassword(e.target.value)}></input><br></br>
-                        <Popup trigger={<input type='submit' value={"Opprett bruker"} onClick={handleSubmit}></input>} position={"center center"} style=" z-index: 99999; height: 100%; width: 70%; margin-top: -10%; background-color: crimson; display: flex; align-items: center; justify-content: center;">
-                            <Confirm/>
-                        </Popup>
-                        
-
+                <form onSubmit={(e)=>handleSubmit(e)}>
+                    <label >Username:</label>
+                    <input type="text" value={username} onInput={(e) => setUsername(e.target.value)}/>
+                    <br></br>
+                    <label >Email:</label>
+                    <input type="email" value={email} onInput={(e) => setEmail(e.target.value)}/>
+                    <br></br>
+                    <label >Password:</label>
+                    <input type="password" value={password} onInput={(e) => setPassword(e.target.value)}/> 
+                    <br></br>                   
+                    <input type="submit" value={"Login"} />
+                    <br></br>
+                    <label>har ikke en bruker?</label>
+                    <Link to={'/'+Kursnavn+'/Sign-Up'}>klikk for å registrer deg</Link>
+                    </form>
                 </div>
-            </div>
+            </div>    
         </div>
-    )
+        </>
+    );
 }
