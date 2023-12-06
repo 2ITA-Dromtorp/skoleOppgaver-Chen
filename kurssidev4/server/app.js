@@ -1,88 +1,126 @@
+// const express = require('express');
+// const app = express();
+// const PORT = 8080;
+// const bcrypt = require('bcrypt');
+// const saltRounds = 10;
+// const mysql = require('mysql2');
+
+// app.use(express.static('build'));
+// app.use(express.json());
+
+// const dbConfig = {
+//   user: 'root',
+//   password: 'root',
+//   database: 'kurspaloggin',
+//   host: 'localhost',
+//   port: 3306,
+// };
+
+// const connection = mysql.createConnection(dbConfig);
+// connection.connect();
+
+// app.listen(PORT, () => {
+//   console.log('Server started' + PORT);
+
+//   
+
+
+const { MongoClient, ServerApiVersion } = require('mongodb');
 const express = require('express');
-const app = express();
-const PORT = 8080;
 const bcrypt = require('bcrypt');
+const app = express();
 const saltRounds = 10;
-const mysql = require('mysql2');
 
-app.use(express.static('build'));
-app.use(express.json());
+const uri = "mongodb+srv://dbTest:aTAwY7XcuR9CipbY@cluster0.igyiltn.mongodb.net/?retryWrites=true&w=majority";
+const client = new MongoClient(uri, {
+  serverApi: {
+    version: ServerApiVersion.v1,
+    strict: true,
+    deprecationErrors: true,
+  }
+});
 
-const dbConfig = {
-  user: 'root',
-  password: 'root',
-  database: 'kurspaloggin',
-  host: 'localhost',
-  port: 3306,
-};
+let collection = null; // Add this variable to store the reference to the MongoDB collection
 
-const connection = mysql.createConnection(dbConfig);
-connection.connect();
+async function run() {
+  try {
+    await client.connect();
+    const database = client.db("reactProsjekt"); // Replace with your actual database name
+    collection = database.collection("react"); // Replace with your actual collection name
+    await client.db("admin").command({ ping: 1 });
+    console.log("Pinged your deployment. You successfully connected to Mlem!");
+  } finally {
 
+  }
+}
+
+app.post('/api/create-user', async (req, res) => {
+  const b = req.body;
+
+  // Check if the user already exists
+  const userExistsQuery = {
+    UserName: b.username,
+    UserPhoneNummer: b.phone,
+    UserEmail: b.email,
+  };
+
+  const existingUser = await collection.findOne(userExistsQuery);
+
+  if (existingUser) {
+    // User already exists, handle accordingly
+    res.status(400).send('User already exists');
+    return;
+  }
+
+  // User doesn't exist, proceed with insertion
+  const hash = await bcrypt.hash(b.password, saltRounds);
+  const documentToInsert = {
+    UserEmail: b.email,
+    UserPassword: hash,
+    UserName: b.username,
+    UserPhoneNummer: b.phone,
+  };
+
+  try {
+    const result = await collection.insertOne(documentToInsert);
+    res.status(200).send(result);
+  } catch (error) {
+    console.error(error);
+    res.status(500).send(error);
+  }
+});
+
+app.post('/api/login', async (req, res) => {
+  const b = req.body;
+
+  const query = {
+    UserName: b.username,
+    UserEmail: b.email,
+  };
+
+  const result = await collection.findOne(query);
+
+  console.log('result:', result);
+
+  if (result) {
+    // User found, now compare passwords
+    const passwordMatch = await bcrypt.compare(b.password, result.UserPassword);
+
+    if (passwordMatch) {
+      res.status(200).send(result);
+    } else {
+      res.status(401).send({ err: 'Feil brukernavn eller passord' });
+    }
+  } else {
+    // No user found
+    res.status(401).send({ err: 'Feil brukernavn eller passord' });
+  }
+});
+
+run().catch(console.dir);
+
+// Additional code to start the Express server
+const PORT = 8080;
 app.listen(PORT, () => {
-  console.log('Server started' + PORT);
-
-  app.post('/api/create-user', async (req, res) => {
-    const b = req.body;
-
-    // Check if the user already exists
-    const userExistsQuery = 'SELECT * FROM login WHERE UserName = ? AND UserPhoneNummer = ? AND UserEmail = ? AND UserPassword = ?';
-    const userExistsValues = [b.email, b.phone, b.username, b.password];
-
-    connection.query(userExistsQuery, userExistsValues, async (err, results) => {
-      if (err) {
-        console.log(err);
-        res.status(500).send(err);
-      } else {
-        if (results.length > 0) {
-          // User already exists, handle accordingly
-          res.status(400).send('User already exists');
-        } else {
-          // User doesn't exist, proceed with insertion
-          const hash = await bcrypt.hash(b.password, saltRounds);
-          const insertQuery =
-            'INSERT INTO login (UserEmail, UserPassword, UserName, UserPhoneNummer) VALUES (?, ?, ?, ?)';
-          const insertValues = [b.email, hash, b.username, b.phone];
-
-          connection.query(insertQuery, insertValues, (err, result) => {
-            if (err) {
-              console.log(err);
-              res.status(500).send(err);
-            } else {
-              res.status(200).send(result);
-            }
-          });
-        }
-      }
-    });
-  });
-  app.post('/api/login', async (req, res) => {
-    const b = req.body;
-    const hash = await bcrypt.hash(b.password, saltRounds);
-    
-    const query = 'SELECT * FROM login WHERE UserName = ? AND UserEmail = ? AND UserPassword = ?'
-    const values = [b.username, b.email, hash]
-
-    connection.query(query, values, (err, result) => {
-    console.log('result:', result);
-    console.log('result.length:', result.length);
-    console.log('passwordMatch:', passwordMatch);
-    console.log('name:', b.username);
-    console.log('email:', b.email);
-    console.log('hash:', hash);
-        if (err){
-            console.log(err)
-            res.status(500).send(err)
-        } else {
-            if(result.length > 0){
-                const passwordMatch = await bcrypt.compare(b.password, hash);
-                if(passwordMatch){
-                res.status(200).send(result)  
-            } else {
-                res.status(401).send({ err: "Feil brukernavn eller passord" });
-            }
-        }
-    
-    })
-  })
+  console.log(`Server is running on port ${PORT}`);
 });
