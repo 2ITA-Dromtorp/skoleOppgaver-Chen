@@ -1,10 +1,14 @@
 const express = require('express');
 const app = express();
-const PORT = 3000;
+const PORT = 3001;
 const mysql = require('mysql2');
+const cors = require('cors')
 
+
+app.use(cors());
 app.use(express.static('build'));
 app.use(express.json());
+
 
 const dbConfig = {
   user: 'root',
@@ -25,20 +29,13 @@ connection.connect(function (err) {
 
 
 
-app.get('/', (req, res) => {
-  const sql = 'SELECT * FROM elev';
-  connection.query(sql, (err, result) => {
-      if (err) {
-          console.error(err);
-          res.status(500).send('Internal Server Error');
-          return;
-      }
-
-      console.log(JSON.stringify(result));
-      console.log(result);
-      res.json(result); // Send as JSON
+app.get('/', (request, response) => {
+  connection.query('SELECT * FROM elev', function (error, results, fields) {
+    if (error) throw error;
+    response.send(JSON.stringify(results));
   });
-});
+})
+
 
 app.listen(PORT, () => {
     console.log(`Example app listening on port ${PORT}`);

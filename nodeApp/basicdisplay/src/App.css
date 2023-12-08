@@ -1,5 +1,5 @@
 *{
-  overflow: hidden;
+  overflow-x: hidden;
 }
 
 .App{
@@ -41,6 +41,7 @@
   width: 70%;
   height: 70%; 
   border: solid black 1px;
+  font-size: 3em;
 }
 
 button{
@@ -49,4 +50,12 @@ button{
   background-color: #d87093;
   color: white;
   border: solid pink 1px;
+}
+
+
+table{
+  font-size: 60%;
+  border-collapse: collapse;
+  width: 100%; 
+  height: 100%; 
 }
