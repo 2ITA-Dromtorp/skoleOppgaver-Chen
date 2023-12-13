@@ -1,0 +1,99 @@
+*{
+  overflow: hidden;
+ 
+}
+
+.navbar{
+  display: flex;
+  flex-direction: row;
+  justify-content: right;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  padding: 10px;
+  background-color: #fe4325;
+}
+
+.content{
+  color: aliceblue;
+}
+
+.content2{
+  margin-right: 85%;
+}
+
+
+.mainbox{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  background-color: #444a48;
+}
+
+.contentBox{
+  display: flex;
+  flex-direction: column;
+  /* overflow-y: scroll; */
+  color: #FFF;
+  background-color: #1b221b;
+  border: solid 1px black;
+  width: 95%;
+  height: 90%;
+  padding: 5%;
+}
+
+.inputP{
+  height: 10%;
+  width: 80%;
+  color: #000;
+  background-color: #ffd;
+}
+
+.input{
+  width: 40%;
+  color: #000;
+  background-color: #ffd;
+}
+
+
+.button{
+  width: 50%;
+  height: 10%;
+  margin-top: 5%;
+  background-color: #fe4325;
+  color: #000;
+  border: none;
+}
+
+.button2{
+  /* width: 50%;
+  height: 10%; */
+  background-color: #fe4325;
+  color: #000;
+  font-size: 100%;
+  border: solid 1px #000;
+  border-radius: 15%;
+}
+
+
+.complaint-item{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* height: 100%;
+  width: 100%; */
+border: solid 1px white;
+margin-bottom: 5%;
+}
+
+.visible {
+  background-color: #ef3452;
+}
+
+.hidden {
+  background-color: #009966;
+}
