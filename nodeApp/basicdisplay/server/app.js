@@ -63,12 +63,12 @@ app.post('/api/login', async (req, res) => {
   const values = [b.username, b.email, hash]
 
   connection.query(query, values, (err, result) => {
-  console.log('result:', result);
-  console.log('result.length:', result.length);
-  console.log('passwordMatch:', passwordMatch);
-  console.log('name:', b.username);
-  console.log('email:', b.email);
-  console.log('hash:', hash);
+  // console.log('result:', result);
+  // console.log('result.length:', result.length);
+  // console.log('passwordMatch:', passwordMatch);
+  // console.log('name:', b.username);
+  // console.log('email:', b.email);
+  // console.log('hash:', hash);
       if (err){
           console.log(err)
           res.status(500).send(err)
