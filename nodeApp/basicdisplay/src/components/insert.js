@@ -95,7 +95,7 @@ export default function INSERT() {
     <input type="text" placeholder="Hobby" onChange={(e) => sethobby(e.target.value)} />
     <input type="text" placeholder="Kjonn" onChange={(e) => setkjonn(e.target.value)} />
     <input type="number" placeholder="DatamaskinID" onChange={(e) => setdatamskinid(e.target.value)} />
-    <button onClick={handleUpdate}>Lag ny bruker</button>
+    <button onClick={handleUpdate} className='bmtn'>Lag ny bruker</button>
 </form>
 </div>
 </>

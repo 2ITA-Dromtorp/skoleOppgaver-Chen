@@ -65,7 +65,6 @@ td{
 }
 
 button{
-  width: 100%;
   background-color: #d87093;
   color: white;
   border: solid pink 1px;
@@ -73,5 +72,17 @@ button{
 
 .dobox{
   color: #000;
+  border: solid black 1px;
+  width: 100%;
   height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 1em;
+  font-weight: bold;
+}
+
+.bmtn{
+  width: 30%;
 }

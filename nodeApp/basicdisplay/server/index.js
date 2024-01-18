@@ -30,14 +30,14 @@ connection.connect(function (err) {
 
 
 app.get('/api/select', async (req, res) => {
-
-
-  
   connection.query('SELECT * FROM elev', function (error, results, fields) {
     if (error) throw error;
     res.send(JSON.stringify(results));
   });
 })
+
+
+
 
 
 app.put('/api/update', async (req, res) => {
@@ -60,6 +60,10 @@ console.log(values)
 
 })
 
+
+
+
+
 app.post('/api/insert', async (req, res) => {
   const a = req.body.body;
 
@@ -78,6 +82,10 @@ console.log(values)
       }
     });
 })
+
+
+
+
 
 
 
