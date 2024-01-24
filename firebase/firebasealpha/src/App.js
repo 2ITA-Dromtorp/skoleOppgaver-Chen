@@ -10,7 +10,7 @@ function App() {
 <Navbar />
 <Routes>
 <Route path="/" element={<Login />} />
-<Route path="/eatseEgg" element={<easterEgg />} />
+<Route path="/easterEgg" element={<easterEgg />} />
 </Routes>
 </>
   );
