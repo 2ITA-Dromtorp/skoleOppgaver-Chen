@@ -70,19 +70,19 @@ html{
 }
 
 
-.blueBox{
-  background-color: #199AF7;
-  height: 82%;
-  width: 80%;
-  opacity: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  overflow-y: scroll;
-  padding: 1%;
-  box-shadow:1px 1px 10px 5px grey;
-}
+  .blueBox{
+    background-color: #199AF7;
+    height: 82%;
+    width: 80%;
+    opacity: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow-y: scroll;
+    padding: 1%;
+    box-shadow:1px 1px 10px 5px grey;
+  }
 
 .info{
   height: 100%;

@@ -1,15 +1,58 @@
-import React from "react";
+// Navbar.js
+import React, { useState, useEffect } from "react";
+import { getAuth, signOut, onAuthStateChanged } from "firebase/auth";
+import Login from "./login";
 
 export default function Navbar() {
-    return (
+  const auth = getAuth();
+  const [accheck, setAccheck] = useState(false);
+ 
+  const btntxt = "sign out";
 
-        <nav className="navbar">
-            <a className="navbarItem" >
-                Navbar
-            </a>
-            <a className="navbarItem" >
-                Barnav
-            </a>
-        </nav>
-    );
+  const handleSignOut = async (e) => {
+    e.preventDefault();
+    try {
+      await signOut(auth);
+      console.log("Sign out successful!");
+    } catch (error) {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      console.log(errorCode, errorMessage);
+    }
+  };
+
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      if (user) {
+        setAccheck(true);
+        console.log(user);
+      } else {
+        setAccheck(false);
+      }
+    });
+
+    return () => {
+      unsubscribe();
+    };
+  }, [auth]);
+ 
+  return (
+  <>
+  
+    <nav className="navbar">
+      <button className="navbarItem">
+        Navbar
+      </button>
+      {accheck && (
+        <button className="navbarItem" onClick={handleSignOut}>
+          {btntxt}
+        </button>
+      )}
+      <button className="navbarItem2">
+        Navbar
+      </button>
+    </nav>
+    <Login accheck={accheck}/>
+    </>
+  );
 }

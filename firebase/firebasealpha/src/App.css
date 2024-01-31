@@ -34,9 +34,32 @@ html{
   display: flex;
   align-items: center;
   justify-content: center;  
+  background: rgb(17, 0, 68);
+}
+
+.navbarItem2{
+  color: #fff; 
+  border: solid 1px #fff;
+  height: 100%;
+  width: 20%;
+  display: flex;
+  align-items: center;
+  justify-content: center;  
+  background: rgb(17, 0, 68);
+  transform: scale(-1, 1);
+            -moz-transform: scale(-1, 1);
+            -webkit-transform: scale(-1, 1);
+            -o-transform: scale(-1, 1);
+            -ms-transform: scale(-1, 1);
+            transform: scale(-1, 1);
 }
 
 .navbarItem:hover{
+  background-color: #fff;
+  color: rgb(17, 0, 68);
+  transition: 900ms;
+}
+.navbarItem2:hover{
   background-color: #fff;
   color: rgb(17, 0, 68);
   transition: 900ms;

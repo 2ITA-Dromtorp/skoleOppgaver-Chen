@@ -1,7 +1,8 @@
 import Navbar from './components/navbar';
+import SignUp from './components/signUp';
 import Login from './components/login';
-import easterEgg from './components/easterEgg';
-import { Route, Routes, Link } from 'react-router-dom';
+import BBOP from './components/easterEgg';
+import { Route, Routes} from 'react-router-dom';
 import './App.css';
 
 function App() {
@@ -9,9 +10,11 @@ function App() {
     <>
 <Navbar />
 <Routes>
-<Route path="/" element={<Login />} />
-<Route path="/easterEgg" element={<easterEgg />} />
+<Route path="/" element={<SignUp />} />
+<Route path="/Login" element={<Login />} />
+<Route path="/BBOP" element={<BBOP />} />
 </Routes>
+
 </>
   );
 }
