@@ -1,36 +1,15 @@
-import logo from './logo.svg';
 import './App.css';
-import axios from 'axios';
+import Navbar from './components/navbar';
+import FirstPage from './components/frontpage';
+import { StrictMode } from 'react';
 
 function App() {
-  axios.get('/')
-    .then(function (response) {
-      // handle success
-      console.log(response);
-    }) 
-    .catch(function (error) {
-      // handle error
-      console.log(error);
-    })
-
-
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-         hjernehinneblødninger hjelp
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>    
+    <Navbar />
+    <FirstPage />
+    </>
+
   );
 }
 

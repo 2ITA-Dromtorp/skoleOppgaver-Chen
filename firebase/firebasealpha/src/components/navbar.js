@@ -1,7 +1,7 @@
 // Navbar.js
 import React, { useState, useEffect } from "react";
 import { getAuth, signOut, onAuthStateChanged } from "firebase/auth";
-import Login from "./login";
+import SignUp from "./signUp";
 
 export default function Navbar() {
   const auth = getAuth();
@@ -52,7 +52,7 @@ export default function Navbar() {
         Navbar
       </button>
     </nav>
-    <Login accheck={accheck}/>
+    {/* <SignUp accheck={accheck}/> */}
     </>
   );
 }
