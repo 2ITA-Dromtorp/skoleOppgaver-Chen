@@ -41,6 +41,7 @@ You don't have to ever use `eject`. The curated feature set is suitable for smal
 
 ### `create the database`
 
+````sql
 -- phpMyAdmin SQL Dump
 -- version 5.1.2
 -- https://www.phpmyadmin.net/
@@ -108,7 +109,7 @@ ALTER TABLE `lending`
   ADD CONSTRAINT `m` FOREIGN KEY (`EquipmentType`) REFERENCES `equipment` (`EquipmentID`),
   ADD CONSTRAINT `n` FOREIGN KEY (`ElevID`) REFERENCES `students` (`ElevID`);
 COMMIT;
-    ```
+    ````
 
 
 ## Learn More
