@@ -109,7 +109,7 @@ ALTER TABLE `lending`
   ADD CONSTRAINT `m` FOREIGN KEY (`EquipmentType`) REFERENCES `equipment` (`EquipmentID`),
   ADD CONSTRAINT `n` FOREIGN KEY (`ElevID`) REFERENCES `students` (`ElevID`);
 COMMIT;
-    ````
+    ````sql
 
 
 ## Learn More
