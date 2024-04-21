@@ -111,6 +111,9 @@ ALTER TABLE `lending`
 COMMIT;
 ````
 
+after creating the database you should be left with something that looks like this:
+
+![database structure](dbImg.png)
 
 ## Learn More
 
